@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+sqlalchemy    
+psycopg2-binary
+python-decouple
+alembic   
+passlib[bcrypt]
+pydantic[email]
+python-multipart
+python-jose
+fastapi-mail
+pytest
+requests
+pytest-cov
+Sphinx
+sphinx_rtd_theme
