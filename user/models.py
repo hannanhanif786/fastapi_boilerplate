@@ -11,3 +11,9 @@ class User(Base):
     password = Column(String(255))
     is_active = Column(Boolean, default=True)
     phone_no = Column(String)
+
+class FileUpload(Base):
+    __tablename__ = "images"
+    id = Column(Integer, primary_key=True, index=True)
+    file_path = Column(String, unique=True, nullable=False, index=True)
+
