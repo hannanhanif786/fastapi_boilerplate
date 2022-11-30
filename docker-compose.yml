@@ -17,6 +17,18 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      
+  migration_app:
+    container_name: migration_app
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/code
+    command: bash -c "alembic revision --autogenerate && alembic upgrade head"
+    depends_on:
+      db:
+        condition: service_healthy
 
   web:
     container_name: crud
@@ -31,17 +43,7 @@ services:
 
     command: python main.py
 
-  migration_app:
-    container_name: migration_app
-    build: .
-    stdin_open: true
-    tty: true
-    volumes:
-      - .:/code
-    command: bash -c "alembic revision --autogenerate && alembic upgrade head"
-    depends_on:
-      db:
-        condition: service_healthy
+  
   
 volumes:
   postgres_data:

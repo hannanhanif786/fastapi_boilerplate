@@ -14,3 +14,5 @@ requests
 pytest-cov
 Sphinx
 sphinx_rtd_theme
+httpx
+boto3
